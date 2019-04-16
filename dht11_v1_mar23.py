@@ -9,20 +9,20 @@ from oauth2client.service_account import ServiceAccountCredentials
 scope = ['https://spreadsheets.google.com/feeds',
 	'https://www.googleapis.com/auth/drive']
 
-#credentials = ServiceAccountCredentials.from_json_keyfile_name('Python Data Collect-5fde45990b19.json', scope)
+#credentials = ServiceAccountCredentials.from_json_keyfile_name('File_Name.json', scope)
 #gc = gspread.authorize(credentials)
 
 # Open a worksheet from spreadsheet with one shot
-#sh = gc.open("DHT Humidity Logs")
-#wks = sh.worksheet("Logs")
+#sh = gc.open("Spreadsheet_Name")
+#wks = sh.worksheet("Tab_Name")
 	
 
 def get_google_data(current_temp, current_humidity):
-	credentials = ServiceAccountCredentials.from_json_keyfile_name('Python Data Collect-5fde45990b19.json', scope)
+	credentials = ServiceAccountCredentials.from_json_keyfile_name('File_Name.json', scope)
 	gc = gspread.authorize(credentials)
 	
-	sh = gc.open("DHT Humidity Logs")
-	wks = sh.worksheet("Logs")
+	sh = gc.open("Spreadsheet_Name")
+	wks = sh.worksheet("Tab_Name")
 	
 	#Get email alert values, High and Low.
 	high_val = wks.cell(1,7).value
@@ -37,10 +37,10 @@ def get_google_data(current_temp, current_humidity):
 
 
 #Email Information	
-smtpUser = 'rpkkirwen@gmail.com'
-smtpPass = 'Northcoast$8$'
+smtpUser = 'SendFrom_Email'
+smtpPass = 'SendFrom_Email_Password'
 
-toAdd = '4194943079@vtext.com'
+toAdd = 'SendTo_Email_Phone'
 fromAdd = smtpUser
 
 #Email Function
